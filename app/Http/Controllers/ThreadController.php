@@ -19,7 +19,14 @@ class ThreadController extends Controller
         return view('create');
     }
 
-    public function store() {
+    public function store(Request $r) {
+        $r->validate([
+            'name' => 'required',
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+
         $thread = new ModelsThread();
 
         $thread->user_name = request('name');

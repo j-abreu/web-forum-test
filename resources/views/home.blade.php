@@ -25,7 +25,7 @@
             <p class="message">{{ session('message') }}</p>
 
             @foreach($threads as $thread)
-                <div>
+                <div class="thread">
                     <fieldset>
                         <h2>{{$thread['title']}}</h2>
                         <h3>
@@ -48,5 +48,6 @@
             @endforeach
 
         </div>
+        <br><br>
     </body>
 </html>

@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 
 class RepliesController extends Controller
 {
-    public function create() {
+    public function create(Request $r) {
+
+        $r->validate([
+            'reply' => 'required',
+            'name' => 'required'
+        ]);
+
         $reply = new ModelsReplies();
 
         $reply->thread_id = request('threadid');
