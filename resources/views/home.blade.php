@@ -48,11 +48,13 @@
                             <button>Delete this Thread</button>
                         </form>
                     </fieldset>
-                    <p></p>
+                    <br>
                 </div>
             @endforeach
-
+            
+            {{$threads->links()}}
         </div>
+        
         <br><br>
     </body>
 </html>

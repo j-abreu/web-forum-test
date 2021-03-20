@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ThreadController extends Controller
 {
     public function index() {
-        $threads = ModelsThread::all();
+        $threads = ModelsThread::simplePaginate(20);
 
         return view('home', ['threads' => $threads]);
     }
@@ -41,7 +41,7 @@ class ThreadController extends Controller
 
     public function show($id) {
         $thread = ModelsThread::findOrFail($id);
-        $replies = ModelsReplies::where('thread_id', $id)->get();
+        $replies = ModelsReplies::where('thread_id', $id)->orderBy('created_at', 'desc')->simplePaginate(20);
         
         $thereIsReplies = false;
         if ($replies->isNotEmpty()) {

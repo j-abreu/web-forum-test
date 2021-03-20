@@ -36,6 +36,7 @@
             @else
                 <h2>No replies</h2>
             @endif
+            {{$replies->links()}}
             <hr>
             <form action="/replies?threadid={{$thread->id}}" method="POST">
                 @csrf
