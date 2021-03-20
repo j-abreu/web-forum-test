@@ -22,15 +22,23 @@
                     <h3>{{$reply['user_name']}}:</h3>
                     <div class="multiline">{{$reply['reply_text']}}</div><br>
                     <div class="created-at">[{{$reply['created_at']}}]</div>
-                    <form action="/replies/edit/{{$reply['id']}}" method="GET">
-                            @csrf
-                            <button class="button3">Edit this reply</button>
-                    </form>
-                    <br>
-                    <form action="/replies/{{$reply['id']}}" method="POST">
-                        @csrf
-                        <button class="button3">Delete this reply</button>
-                    </form>
+
+                    <div class="row">
+                        <div class="column">
+                            <form action="/replies/edit/{{$reply['id']}}" method="GET">
+                                @csrf
+                                <button class="button3">Edit this reply</button>
+                            </form>
+                        </div>
+
+                        <div class="column">
+                            <form action="/replies/{{$reply['id']}}" method="POST">
+                                @csrf
+                                <button class="button3">Delete this reply</button>
+                            </form>
+                        </div>
+
+                    </div>
                     <br>
                 @endforeach
             @else

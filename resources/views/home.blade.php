@@ -39,14 +39,20 @@
                         </h4>
                         <div class="button2"><a href="/threads/{{$thread->id}}" style="text-decoration:none">DETAILS</a></div>  
                         <br>
-                        <form action="/threads/edit/{{$thread->id}}" method="GET">
-                            @csrf
-                            <button>Edit this Thread</button>
-                        </form><br>
-                        <form action="/threads/{{$thread->id}}" method="POST">
-                            @csrf
-                            <button>Delete this Thread</button>
-                        </form>
+                        <div class="row">
+                            <div class="column">
+                                <form action="/threads/edit/{{$thread->id}}" method="GET">
+                                    @csrf
+                                    <button>Edit this Thread</button>
+                                </form>
+                            </div>
+                            <div class="column">
+                                <form action="/threads/{{$thread->id}}" method="POST">
+                                    @csrf
+                                    <button>Delete this Thread</button>
+                                </form>
+                            </div>
+                        </div>
                     </fieldset>
                     <br>
                 </div>
