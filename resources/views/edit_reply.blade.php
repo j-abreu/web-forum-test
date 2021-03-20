@@ -17,7 +17,7 @@
             <br><br>
             <label for="name">Your name:</label>
             <input type="text" id="name" name="name" value="{{$reply->user_name}}">
-            <input type="submit" value="reply">
+            <input type="submit" value="save">
             <div class="red-text">
                 <span>@error('name'){{$message}}@enderror</span>
             </div>
