@@ -65,4 +65,11 @@ class RepliesController extends Controller
 
         return redirect('/threads/' .$reply->thread_id);
     }
+
+    public function show($id) {
+        $reply = ModelsReplies::where('thread_id', $id)->first();
+        $thread = ModelsThread::findOrFail($id);
+        $reply['thread_title'] = $thread->title;
+        return view('show_reply', ['reply' => $reply]);
+    }
 }

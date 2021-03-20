@@ -8,18 +8,20 @@
     <body>
         <div class="content-thread">
             <div class="top-right button1">
-                <a href="/threads">HOME</a>
+                <a href="/threads" style="text-decoration:none" >HOME</a>
             </div>
 
             <h1>{{$thread['title']}}</h1>
             <h3>- {{$thread['user_name']}}</h3>
             <div class="multiline">{{$thread['description']}}</div>
+            <div class="created-at">[{{$thread['created_at']}}]</div>
             <hr>
             @if ($thereIsReplies)
                 <h2>Replies:</h2>
                 @foreach($replies as $reply)
                     <h3>{{$reply['user_name']}}:</h3>
                     <div class="multiline">{{$reply['reply_text']}}</div><br>
+                    <div class="created-at">[{{$reply['created_at']}}]</div>
                     <form action="/replies/edit/{{$reply['id']}}" method="GET">
                             @csrf
                             <button class="button3">Edit this reply</button>

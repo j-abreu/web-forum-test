@@ -6,6 +6,7 @@
     <link href="/css/main.css" rel="stylesheet">
 </head>
     <body>
+        <div class="reply-content">
         <form action="/replies/update/{{$reply->id}}" method="POST">
             @csrf
             <label for="reply">Your reply:</label>
@@ -22,5 +23,7 @@
                 <span>@error('name'){{$message}}@enderror</span>
             </div>
         </form>
+        <div class="button2 content"><a href="/threads/{{$reply->thread_id}}" style="text-decoration:none">BACK</a></div>
+        </div>
     </body>
 </html>

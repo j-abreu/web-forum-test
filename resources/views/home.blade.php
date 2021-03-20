@@ -19,7 +19,7 @@
             <h1>Threads</h1>
 
             <div class="top-right button1">
-                <a href="/threads/create">Create a new Thread</a>
+                <a href="/threads/create" style="text-decoration:none">Create a new Thread</a>
             </div>
 
             <p class="message">{{ session('message') }}</p>
@@ -29,15 +29,20 @@
                     <fieldset>
                         <h2>{{$thread['title']}}</h2>
                         <h4>
-                            {{$thread['num_replies']}}
-                            @if ($thread['num_replies'] == 1)
-                                Reply
+                            @if ($thread['num_replies'] == 0)
+                                {{$thread['num_replies']}} Replies
+                            @elseif ($thread['num_replies'] == 1)
+                                <a href="/replies/{{$thread->id}}" style="text-decoration:none">{{$thread['num_replies']}} Reply</a>
                             @else
-                                Replies
+                                <a href="/replies/{{$thread->id}}" style="text-decoration:none">{{$thread['num_replies']}} Replies</a>
                             @endif
                         </h4>
-                        <div class="button2"><a href="/threads/{{$thread->id}}">DETAILS</a></div>  
+                        <div class="button2"><a href="/threads/{{$thread->id}}" style="text-decoration:none">DETAILS</a></div>  
                         <br>
+                        <form action="/threads/edit/{{$thread->id}}" method="GET">
+                            @csrf
+                            <button>Edit this Thread</button>
+                        </form><br>
                         <form action="/threads/{{$thread->id}}" method="POST">
                             @csrf
                             <button>Delete this Thread</button>

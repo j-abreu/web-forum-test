@@ -24,10 +24,16 @@ Route::get('/threads/create', [ThreadController::class, 'create']);
 Route::post('/threads', [ThreadController::class, 'store']);
 Route::get('/threads/{id}', [ThreadController::class, 'show']);
 Route::post('/threads/{id}', [ThreadController::class, 'delete']);
+Route::get('/threads/edit/{id}', [ThreadController::class, 'edit']);
+Route::post('/threads/update/{id}', [ThreadController::class, 'update']);
+
 
 Route::post('/replies', [RepliesController::class, 'create']);
+Route::get('/replies/{id}', [RepliesController::class, 'show']);
 Route::post('/replies/{id}', [RepliesController::class, 'delete']);
 Route::get('/replies/edit/{id}', [RepliesController::class, 'edit']);
 Route::post('/replies/update/{id}', [RepliesController::class, 'update']);
+
+
 
 

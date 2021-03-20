@@ -63,4 +63,29 @@ class ThreadController extends Controller
 
         return redirect('/threads');
     }
+
+    public function edit($id) {
+        $thread = ModelsThread::findOrFail($id);
+
+        return view('edit_thread', ['thread' => $thread]);
+    }
+
+    public function update(Request $r, $id) {
+        $r->validate([
+            'title' => 'required | max:250',
+            'description' => 'required | max:65000',
+            'name' => 'required | max:250'
+        ]);
+        
+        $thread = ModelsThread::findOrFail($id);
+
+        $thread->title = request('title');
+        $thread->description = request('description');
+        $thread->user_name = request('name');
+
+        $thread->save();
+
+        return redirect('/threads');
+
+    }
 }

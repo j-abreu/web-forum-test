@@ -8,6 +8,13 @@ html, body {
     line-break: unset;
 }
 
+.created-at {
+    font-size: 14px;
+    text-align: left;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 
 .red-text {
@@ -48,9 +55,16 @@ html, body {
     text-align: center;
 }
 
+.reply-content {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
 .content-thread {
     text-align: left;
-    padding-left: 10px;
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 .links > a {
