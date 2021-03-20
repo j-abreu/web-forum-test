@@ -39,7 +39,8 @@
                 </form>
             </div>
             <br><br>
-            <a href="/threads">BACK</a>
+            <div class="button2"><a href="/threads">BACK</a></div>
+            
         </div>
     </body>
 </html>

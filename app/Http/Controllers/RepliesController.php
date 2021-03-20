@@ -11,8 +11,8 @@ class RepliesController extends Controller
     public function create(Request $r) {
 
         $r->validate([
-            'reply' => 'required',
-            'name' => 'required'
+            'reply' => 'required | max:65000',
+            'name' => 'required | max:250'
         ]);
 
         $reply = new ModelsReplies();
@@ -43,5 +43,26 @@ class RepliesController extends Controller
         $thread->save();
 
         return redirect('/threads/'.$reply->thread_id);
+    }
+
+    public function edit($id) {
+        $reply = ModelsReplies::findOrFail($id);
+        return view('edit_reply', ['reply' => $reply]);
+    }
+
+    public function update(Request $r, $id) {
+
+        $r->validate([
+            'name' => 'required | max:250',
+            'reply' => 'required | max:65000'
+        ]);
+
+        $reply = ModelsReplies::findOrFail($id);
+        $reply->user_name = request('name');
+        $reply->reply_text = request('reply');
+
+        $reply->save();
+
+        return redirect('/threads/' .$reply->thread_id);
     }
 }

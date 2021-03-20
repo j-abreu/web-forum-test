@@ -21,9 +21,9 @@ class ThreadController extends Controller
 
     public function store(Request $r) {
         $r->validate([
-            'name' => 'required',
-            'title' => 'required',
-            'description' => 'required'
+            'name' => 'required | max:250',
+            'title' => 'required | max:250',
+            'description' => 'required | max:65000'
         ]);
 
 

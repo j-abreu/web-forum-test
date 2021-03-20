@@ -8,6 +8,8 @@ html, body {
     line-break: unset;
 }
 
+
+
 .red-text {
     color: red;
 }
@@ -65,15 +67,32 @@ html, body {
     margin-bottom: 30px;
 }
 
-.create-button {
-    color: #00aaff;
+.button1 {
+    color: #000000;
     padding: 20px 25px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: .1rem;
     text-decoration: none;
     text-transform: uppercase;
 }
+
+.button2 {
+    color: #000000;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.button3 {
+    width: 200px;
+    margin: 0 auto;
+    display: inline;
+}
+
 
 footer{
     background: #eee;

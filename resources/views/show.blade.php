@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="content-thread">
-            <div class="top-right">
+            <div class="top-right button1">
                 <a href="/threads">HOME</a>
             </div>
 
@@ -20,9 +20,14 @@
                 @foreach($replies as $reply)
                     <h3>{{$reply['user_name']}}:</h3>
                     <div class="multiline">{{$reply['reply_text']}}</div><br>
+                    <form action="/replies/edit/{{$reply['id']}}" method="GET">
+                            @csrf
+                            <button class="button3">Edit this reply</button>
+                    </form>
+                    <br>
                     <form action="/replies/{{$reply['id']}}" method="POST">
                         @csrf
-                        <button>Delete this reply</button>
+                        <button class="button3">Delete this reply</button>
                     </form>
                     <br>
                 @endforeach

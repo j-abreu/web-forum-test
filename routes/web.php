@@ -27,4 +27,7 @@ Route::post('/threads/{id}', [ThreadController::class, 'delete']);
 
 Route::post('/replies', [RepliesController::class, 'create']);
 Route::post('/replies/{id}', [RepliesController::class, 'delete']);
+Route::get('/replies/edit/{id}', [RepliesController::class, 'edit']);
+Route::post('/replies/update/{id}', [RepliesController::class, 'update']);
+
 
