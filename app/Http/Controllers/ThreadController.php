@@ -12,7 +12,7 @@ class ThreadController extends Controller
     public function index() {
         $threads = ModelsThread::orderBy('created_at', 'desc')->simplePaginate(20);
 
-        return view('home', ['threads' => $threads]);
+        return view('threads', ['threads' => $threads]);
     }
 
     public function create() {
